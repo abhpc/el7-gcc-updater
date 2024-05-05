@@ -1,8 +1,47 @@
 #! /bin/bash
 
-GCC_VERS=$1
-DES=$2
-JN=$3
+# Function to display usage information
+display_usage() {
+    echo "Usage: $0 gcc=<version> des=<directory> -j <number>"
+    echo "Options:"
+    echo "  gcc=<version>   Specify the GCC version"
+    echo "  des=<directory> Specify the destination directory"
+    echo "  -j <number>     Specify the number of jobs"
+}
+
+# Check the number of arguments
+if [ $# -eq 0 ] || [ "$1" == "--help" ] || [ "$1" == "-h" ]; then
+    display_usage
+    exit 0
+elif [ $# -ne 3 ]; then
+    echo "Error: 3 arguments are required"
+    exit 1
+fi
+
+# Parse the arguments
+for arg in "$@"; do
+    case $arg in
+        gcc=*)
+            GCC_VERS="${arg#*=}"
+            ;;
+        des=*)
+            DES="${arg#*=}"
+            ;;
+        -j)
+            shift
+            JN="$1"
+            ;;
+        *)
+            echo "Error: Invalid argument"
+            exit 1
+            ;;
+    esac
+done
+
+# Print the arguments
+echo "GCC_VERS=$GCC_VERS"
+echo "DES=$DES"
+echo "JN=$JN"
 
 # Download gmp, mpfr and mpc
 
