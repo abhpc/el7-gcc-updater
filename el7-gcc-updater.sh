@@ -2,24 +2,39 @@
 
 # Function to display usage information
 display_usage() {
-    echo "Usage: $0 gcc=<version> des=<directory> -j <number>"
+    echo "Usage: $0 gcc=<version> des=<directory> [-j <number>]"
     echo "Options:"
     echo "  gcc=<version>   Specify the GCC version"
-    echo "  des=<directory> Specify the destination directory"
+    echo "  des=<directory> Specify the install directory"
     echo "  -j <number>     Specify the number of jobs"
+}
+
+# Function to prompt for confirmation
+prompt_confirmation() {
+    read -t 15 -p "You have 15 seconds to confirm the information or program be automatically exit. Please confirm (y/n): " choice
+    case $choice in
+        y|Y)
+            ;;
+        *)
+            echo "Exiting..."
+            exit 0
+            ;;
+    esac
 }
 
 # Check the number of arguments
 if [ $# -eq 0 ] || [ "$1" == "--help" ] || [ "$1" == "-h" ]; then
     display_usage
     exit 0
-elif [ $# -ne 3 ]; then
-    echo "Error: 3 arguments are required"
+elif [ $# -lt 3 ]; then
+    echo "Error: 3 arguments are required."
+    display_usage
     exit 1
 fi
 
 # Parse the arguments
-for arg in "$@"; do
+for ((i=1; i<=$#; i++)); do
+    arg="${!i}"
     case $arg in
         gcc=*)
             GCC_VERS="${arg#*=}"
@@ -28,8 +43,8 @@ for arg in "$@"; do
             DES="${arg#*=}"
             ;;
         -j)
-            shift
-            JN="$1"
+            ((i++))
+            JN="${!i}"
             ;;
         *)
             echo "Error: Invalid argument"
@@ -43,7 +58,9 @@ echo "GCC_VERS=$GCC_VERS"
 echo "DES=$DES"
 echo "JN=$JN"
 
-# Download gmp, mpfr and mpc
+# Prompt for confirmation
+prompt_confirmation
+echo "Continuing..."
 
 # Install gmp 6.1.2
 rm -rf gmp-6.1.2.tar.xz
