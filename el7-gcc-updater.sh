@@ -1,12 +1,8 @@
 #! /bin/bash
-export SOFT_SERV="http://xxx"
-DES="/opt/devt"
-JN="20"
 
-# Downlaod gcc 7.5.0, 9.5.0 and 13.1.0
-wget $SOFT_SERV/gcc-7.5.0.tar.xz --no-check-certificate
-wget $SOFT_SERV/gcc-9.5.0.tar.xz --no-check-certificate
-wget $SOFT_SERV/gcc-13.1.0.tar.xz --no-check-certificate
+GCC_VERS=$1
+DES=$2
+JN=$3
 
 # Download gmp, mpfr and mpc
 
@@ -37,8 +33,8 @@ cd mpc-1.0.3
 make -j $JN && make install
 cd ..
 
-# Clean gmp, mpc and mpfr files
-rm -rf gmp-6.1.2 mpc-1.0.3 mpfr-3.1.6
+# Clean gmp, mpc and mpfr files and directory
+rm -rf gmp-6.1.2* mpc-1.0.3* mpfr-3.1.6*
 
 # ld configure
 echo "$DES/gmp-6.1.2/lib"  >> /etc/ld.so.conf
@@ -46,8 +42,9 @@ echo "$DES/mpfr-3.1.6/lib" >> /etc/ld.so.conf
 echo "$DES/mpc-1.0.3/lib"  >> /etc/ld.so.conf
 ldconfig -v
 
-# Install GCC 7.5.0
-export GCC_VERS="7.5.0"
+# Install GCC
+rm -rf gcc-$GCC_VERS.tar.xz
+wget https://ftp.gnu.org/gnu/gcc/gcc-$GCC_VERS/gcc-$GCC_VERS.tar.xz
 tar xvf gcc-$GCC_VERS.tar.xz
 cd gcc-$GCC_VERS
 ./configure --enable-checking=release --enable-languages=c,c++,fortran --disable-multilib \
