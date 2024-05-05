@@ -62,14 +62,20 @@ echo "JN=$JN"
 prompt_confirmation
 echo "Continuing..."
 
-# Install gmp 6.1.2
-rm -rf gmp-6.1.2.tar.xz
-wget https://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.xz --no-check-certificate
-tar xvf gmp-6.1.2.tar.xz
-cd gmp-6.1.2
-./configure --prefix=$DES/gmp-6.1.2
-make -j $JN && make install
-cd ..
+
+# Check if gmp-6.1.2 is already installed
+if [ -d "$DES/gmp-6.1.2" ]; then
+    echo "gmp-6.1.2 is already installed in $DES. Skipping installation."
+else
+    # Install gmp 6.1.2
+    rm -rf gmp-6.1.2.tar.xz
+    wget https://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.xz --no-check-certificate
+    tar -xf gmp-6.1.2.tar.xz
+    cd gmp-6.1.2
+    ./configure --prefix=$DES/gmp-6.1.2 &>/dev/null
+    make -j $JN &>/dev/null && make install &>/dev/null
+    cd ..
+fi
 
 # Install mpfr 3.1.6
 rm -rf mpfr-3.1.6.tar.gz
