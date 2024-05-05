@@ -8,5 +8,5 @@ Usage:
 Options:
   gcc=<version>   Specify the GCC version
   des=<directory> Specify the install directory
-  -j <number>     Specify the number of jobs
+  -j <number>     Specify the number of compiling threads
 ```

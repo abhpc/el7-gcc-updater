@@ -6,7 +6,7 @@ display_usage() {
     echo "Options:"
     echo "  gcc=<version>   Specify the GCC version"
     echo "  des=<directory> Specify the install directory"
-    echo "  -j <number>     Specify the number of jobs"
+    echo "  -j <number>     Specify the number of compiling threads"
 }
 
 # Function to prompt for confirmation
@@ -27,7 +27,7 @@ if [ $# -eq 0 ] || [ "$1" == "--help" ] || [ "$1" == "-h" ]; then
     display_usage
     exit 0
 elif [ $# -lt 3 ]; then
-    echo "Error: 3 arguments are required."
+    echo "Error: Invalid argument!"
     display_usage
     exit 1
 fi
@@ -47,7 +47,7 @@ for ((i=1; i<=$#; i++)); do
             JN="${!i}"
             ;;
         *)
-            echo "Error: Invalid argument"
+            echo "Error: Invalid argument!"
             exit 1
             ;;
     esac
