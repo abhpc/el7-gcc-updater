@@ -78,14 +78,19 @@ else
     cd ..
 fi
 
-# Install mpfr 3.1.6
-rm -rf mpfr-3.1.6.tar.gz
-wget https://ftp.gnu.org/gnu/mpfr/mpfr-3.1.6.tar.gz --no-check-certificate
-tar xvf mpfr-3.1.6.tar.gz
-cd mpfr-3.1.6
-./configure --prefix=$DES/mpfr-3.1.6 --with-gmp=$DES/gmp-6.1.2
-make -j $JN && make install
-cd ..
+# Check if mpfr-3.1.6 is already installed
+if [ -d "$DES/mpfr-3.1.6" ]; then
+    echo "mpfr-3.1.6 is already installed in $DES. Skipping installation."
+else
+    # Install mpfr 3.1.6
+    rm -rf mpfr-3.1.6.tar.gz
+    wget https://ftp.gnu.org/gnu/mpfr/mpfr-3.1.6.tar.gz --no-check-certificate
+    tar xvf mpfr-3.1.6.tar.gz
+    cd mpfr-3.1.6
+    ./configure --prefix=$DES/mpfr-3.1.6 --with-gmp=$DES/gmp-6.1.2
+    make -j $JN && make install
+    cd ..
+fi
 
 # Install mpc 1.0.3
 rm -rf mpc-1.0.3.tar.gz
