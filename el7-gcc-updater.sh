@@ -48,6 +48,7 @@ for ((i=1; i<=$#; i++)); do
             ;;
         *)
             echo "Error: Invalid argument!"
+            display_usage
             exit 1
             ;;
     esac
