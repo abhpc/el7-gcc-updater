@@ -22,6 +22,12 @@ prompt_confirmation() {
     esac
 }
 
+# Check if the current user is root
+if [[ $EUID -ne 0 ]]; then
+    echo "This script must be run as root"
+    exit 1
+fi
+
 # Check the number of arguments
 if [ $# -eq 0 ] || [ "$1" == "--help" ] || [ "$1" == "-h" ]; then
     display_usage
