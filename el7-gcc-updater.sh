@@ -76,6 +76,7 @@ if [ -d "$DES/gmp-6.1.2" ]; then
 else
     # Install gmp 6.1.2
     rm -rf gmp-6.1.2.tar.xz
+    echo "Downloading gmp-6.1.2.tar.xz ..."
     wget https://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.xz --no-check-certificate
     tar -xf gmp-6.1.2.tar.xz
     cd gmp-6.1.2
