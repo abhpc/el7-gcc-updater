@@ -123,7 +123,7 @@ echo "$DES/gmp-6.1.2/lib"  >> /etc/ld.so.conf
 echo "$DES/mpfr-3.1.6/lib" >> /etc/ld.so.conf
 echo "$DES/mpc-1.0.3/lib"  >> /etc/ld.so.conf
 awk '!seen[$0]++' /etc/ld.so.conf > /etc/ld.so.conf.tmp
-mv /etc/ld.so.conf.tmp /etc/ld.so.conf
+mv -f /etc/ld.so.conf.tmp /etc/ld.so.conf
 ldconfig -v &> /dev/null
 
 # Check if gcc is already installed
