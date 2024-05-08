@@ -146,6 +146,7 @@ echo "$DES/mpc-1.0.3/lib"  >> /etc/ld.so.conf
 awk '!seen[$0]++' /etc/ld.so.conf > /etc/ld.so.conf.tmp
 mv -f /etc/ld.so.conf.tmp /etc/ld.so.conf
 ldconfig -v &> /dev/null
+echo -e "----------------------------------------------------------------------------------------------------------\n"
 
 # Check if gcc is already installed
 if [ -d "$DES/gcc-$GCC_VERS" ]; then
