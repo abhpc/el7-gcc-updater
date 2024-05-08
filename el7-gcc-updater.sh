@@ -78,12 +78,16 @@ else
     rm -rf gmp-6.1.2.tar.xz
     echo "Downloading gmp-6.1.2.tar.xz ..."
     wget https://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.xz --no-check-certificate
+    echo "Uncompress gmp-6.1.2.tar.xz ..."
     tar -xf gmp-6.1.2.tar.xz
     cd gmp-6.1.2
+    echo "configure ..."
     ./configure --prefix=$DES/gmp-6.1.2 &>/dev/null
+    echo "Make and make install gmp-6.1.2 ..."
     make -j $JN &>/dev/null && make install &>/dev/null
     cd ..
     rm -rf gmp-6.1.2*
+    echo "gmp-6.1.2 has been install in $DES/gmp-6.1.2"
 fi
 
 # Check if mpfr-3.1.6 is already installed
@@ -91,9 +95,11 @@ if [ -d "$DES/mpfr-3.1.6" ]; then
     echo "mpfr-3.1.6 is already installed in $DES. Skipping installation."
 else
     # Install mpfr 3.1.6
+    echo "Downloading mpfr-3.1.6 ..."
     rm -rf mpfr-3.1.6.tar.gz
     wget https://ftp.gnu.org/gnu/mpfr/mpfr-3.1.6.tar.gz --no-check-certificate
-    tar xvf mpfr-3.1.6.tar.gz
+    echo "Uncompress mpfr-3.1.6.tar.gz ..."
+    tar xvf mpfr-3.1.6.tar.gz &>/dev/null
     cd mpfr-3.1.6
     ./configure --prefix=$DES/mpfr-3.1.6 --with-gmp=$DES/gmp-6.1.2
     make -j $JN && make install
