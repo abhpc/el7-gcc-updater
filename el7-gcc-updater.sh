@@ -78,7 +78,7 @@ else
     # Install gmp 6.1.2
     rm -rf gmp-6.1.2.tar.xz
     echo "Downloading gmp-6.1.2.tar.xz ..."
-    wget https://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.xz --no-check-certificate 1>/dev/null
+    wget https://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.xz --no-check-certificate &>/dev/null
     echo "Uncompress gmp-6.1.2.tar.xz ..."
     tar -xf gmp-6.1.2.tar.xz
     cd gmp-6.1.2
@@ -100,7 +100,7 @@ else
     # Install mpfr 3.1.6
     echo "Downloading mpfr-3.1.6.tar.gz ..."
     rm -rf mpfr-3.1.6.tar.gz
-    wget https://ftp.gnu.org/gnu/mpfr/mpfr-3.1.6.tar.gz --no-check-certificate 1>/dev/null
+    wget https://ftp.gnu.org/gnu/mpfr/mpfr-3.1.6.tar.gz --no-check-certificate &>/dev/null
     echo "Uncompress mpfr-3.1.6.tar.gz ..."
     tar xvf mpfr-3.1.6.tar.gz 1>/dev/null
     cd mpfr-3.1.6
@@ -123,7 +123,7 @@ else
     # Install mpc 1.0.3
     echo "Download mpc-1.0.3.tar.gz ..."
     rm -rf mpc-1.0.3.tar.gz
-    wget https://ftp.gnu.org/gnu/mpc/mpc-1.0.3.tar.gz --no-check-certificate 1>/dev/null
+    wget https://ftp.gnu.org/gnu/mpc/mpc-1.0.3.tar.gz --no-check-certificate &>/dev/null
     echo "Uncompress mpc-1.0.3.tar.gz ..."
     tar xvf mpc-1.0.3.tar.gz 1>/dev/null
     cd mpc-1.0.3
@@ -155,7 +155,7 @@ else
     # Install GCC
     echo "Downloading gcc-$GCC_VERS.tar.xz ..."
     rm -rf gcc-$GCC_VERS.tar.xz
-    wget https://ftp.gnu.org/gnu/gcc/gcc-$GCC_VERS/gcc-$GCC_VERS.tar.xz 1>/dev/null
+    wget https://ftp.gnu.org/gnu/gcc/gcc-$GCC_VERS/gcc-$GCC_VERS.tar.xz &>/dev/null
     echo "Uncompress gcc-$GCC_VERS.tar.xz ..."
     tar xvf gcc-$GCC_VERS.tar.xz 1>/dev/null
     cd gcc-$GCC_VERS
