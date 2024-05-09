@@ -5,7 +5,7 @@ display_usage() {
     echo "Usage: $0 gcc=<version> des=<directory> [-j <number>]"
     echo "Options:"
     echo "  gcc=<version>   Specify the GCC version"
-    echo "  des=<directory> Specify the install directory"
+    echo "  des=<directory> Specify the install directory, gcc will be installed in des/gcc-<version>"
     echo "  -j <number>     Specify the number of compiling threads"
 }
 
@@ -61,9 +61,9 @@ for ((i=1; i<=$#; i++)); do
 done
 
 # Print the arguments
-echo "GCC_VERS=$GCC_VERS"
-echo "DES=$DES"
-echo "JN=$JN"
+echo "GCC version: $GCC_VERS"
+echo "GCC install directory: $DES/gcc-$GCC_VERS"
+echo "Compiling threads: $JN"
 
 # Prompt for confirmation
 prompt_confirmation
