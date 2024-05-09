@@ -23,8 +23,7 @@ prompt_confirmation() {
 
 # Check if the current user is root
 if [[ $EUID -ne 0 ]]; then
-    echo "This script must be run as root"
-    exit 1
+    echo "This script should be better to run as root."
 fi
 
 # Check the number of arguments

@@ -10,11 +10,19 @@ yum groupinstall "Development Tools" -y
 yum install texinfo -y
 ```
 
-## Usage
+## GCC updater usage
 ```bash
 ./el7-gcc-updater.sh gcc=<version> des=<directory> [-j <number>]
 Options:
   gcc=<version>   Specify the GCC version
   des=<directory> Specify the install directory
   -j <number>     Specify the number of compiling threads
+```
+
+## Generate related environment modulefile
+```bash
+./gen-modulefile.sh des=<directory> [-o <modulefile>]
+Options:
+  des=<directory> Specify the gcc install directory
+  -o <modulefiler>     Specify the output modulefile
 ```
