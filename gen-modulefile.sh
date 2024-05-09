@@ -65,19 +65,19 @@ echo "Continuing..."
 
 # Check if the $DES/lib64 directory exists
 if [ ! -d "$DES/lib64" ]; then
-    echo "gcc lib64 directory does not exist"
+    echo "Error: gcc $DES/lib64 directory does not exist! Exiting ..."
     exit 1
 fi
 
 # Check if the $DES/bin directory exists
 if [ ! -d "$DES/bin" ]; then
-    echo "gcc bin directory does not exist"
+    echo "Error: gcc $DES/bin directory does not exist! Exiting ..."
     exit 1
 fi
 
 # Check if the $DES/share/man directory exists
 if [ ! -d "$DES/share/man" ]; then
-    echo "gcc share/man directory does not exist"
+    echo "Error: gcc $DES/share/man directory does not exist! Exiting ..."
     exit 1
 fi
 
