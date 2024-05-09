@@ -90,3 +90,6 @@ prepend-path    LD_LIBRARY_PATH \$DES/lib64
 prepend-path    LIBRARY_PATH    \$DES/lib64
 prepend-path    MANPATH         \$DES/share/man
 EOF
+echo -e "----------------------------------------------------------------------------------------------------------"
+echo "Generating enviroment modulefile for gcc ... Done!"
+echo -e "----------------------------------------------------------------------------------------------------------\n"
