@@ -72,7 +72,7 @@ echo "Continuing..."
 
 # Check if gmp-6.1.2 is already installed
 if [ -d "$DES/gmp-6.1.2" ]; then
-    echo "gmp-6.1.2 is already installed in $DES. Skipping installation."
+    echo "gmp-6.1.2 is already installed in $DES/gmp-6.1.2. Skipping installation."
     echo -e "----------------------------------------------------------------------------------------------------------\n"
 else
     # Install gmp 6.1.2
@@ -94,7 +94,7 @@ fi
 
 # Check if mpfr-3.1.6 is already installed
 if [ -d "$DES/mpfr-3.1.6" ]; then
-    echo "mpfr-3.1.6 is already installed in $DES. Skipping installation."
+    echo "mpfr-3.1.6 is already installed in $DES/mpfr-3.1.6. Skipping installation."
     echo -e "----------------------------------------------------------------------------------------------------------\n"
 else
     # Install mpfr 3.1.6
@@ -117,7 +117,7 @@ fi
 
 # Check if mpc-1.0.3 is already installed
 if [ -d "$DES/mpc-1.0.3" ]; then
-    echo "mpc-1.0.3 is already installed in $DES. Skipping installation."
+    echo "mpc-1.0.3 is already installed in $DES/mpc-1.0.3. Skipping installation."
     echo -e "----------------------------------------------------------------------------------------------------------\n"
 else
     # Install mpc 1.0.3
@@ -150,7 +150,7 @@ echo -e "-----------------------------------------------------------------------
 
 # Check if gcc is already installed
 if [ -d "$DES/gcc-$GCC_VERS" ]; then
-    echo "gcc-$GCC_VERS is already installed in $DES. Skipping installation."
+    echo "gcc-$GCC_VERS is already installed in $DES/gcc-$GCC_VERS. Skipping installation."
     echo -e "----------------------------------------------------------------------------------------------------------\n"
 else
     # Install GCC
