@@ -63,3 +63,13 @@ echo "Output modulefile: $MF"
 # Prompt for confirmation
 prompt_confirmation
 echo "Continuing..."
+
+cat << EOF > $MF
+#%Module 1.0
+conflict        gcc
+set             DES         $DES
+prepend-path    PATH            \$DES/bin
+prepend-path    LD_LIBRARY_PATH \$DES/lib64
+prepend-path    LIBRARY_PATH    \$DES/lib64
+prepend-path    MANPATH         \$DES/share/man
+EOF
