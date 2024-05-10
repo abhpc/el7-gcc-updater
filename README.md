@@ -2,6 +2,8 @@
 
 ```el7-gcc-updater``` is a shell script designed to assist root users in building various versions of gcc on CentOS 7.
 
+[[TOC]]
+
 ## System requirement
 Before run this script, please install necessary development tools:
 ```bash
