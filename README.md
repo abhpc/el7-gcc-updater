@@ -1,10 +1,9 @@
-# el7-gcc-updater
+# el7-gcc-updater <!-- omit in toc -->
 
-- [el7-gcc-updater](#el7-gcc-updater)
-  - [Introduction](#introduction)
-  - [System requirement](#system-requirement)
-  - [GCC updater usage](#gcc-updater-usage)
-  - [Generate related environment modulefile](#generate-related-environment-modulefile)
+- [Introduction](#introduction)
+- [System requirement](#system-requirement)
+- [GCC updater usage](#gcc-updater-usage)
+- [Generate related environment modulefile](#generate-related-environment-modulefile)
 
 
 
@@ -38,3 +37,4 @@ Options:
 
 [def]: #2-质心曲线
 [def2]: #13-paraview后处理
+[def3]: #el7-gcc-updater
